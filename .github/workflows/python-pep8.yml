@@ -1,0 +1,28 @@
+name: Python AutoPEP8
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  autopep8-check:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11.7'
+
+    - name: Install autopep8
+      run: |
+        python -m pip install --upgrade pip
+        pip install autopep8
+
+    - name: Run autopep8 with aggressive settings
+      run: |
+        autopep8 --in-place --aggressive --aggressive --max-line-length=79 .
