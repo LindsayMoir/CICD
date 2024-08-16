@@ -25,16 +25,15 @@ jobs:
 
     - name: Run autopep8 on modified Python files
       run: |
-        git fetch --depth=2 # Fetch at least two commits for diff comparison
+        git fetch --depth=2
         DIFF_FILES=$(git diff --name-only --diff-filter=d HEAD~1 HEAD || \
-        git diff --name-only --diff-filter=d $(git hash-object -t tree \
-        /dev/null) HEAD)
+        git diff --name-only --diff-filter=d $(git hash-object -t tree /dev/null) HEAD)
         if [ -n "$DIFF_FILES" ]; then
           echo "$DIFF_FILES" | grep '\.py$' | xargs autopep8 --in-place \
           --aggressive --aggressive --max-line-length=79
         else
           echo "No Python files to format."
-      
+
     - name: Commit changes
       run: |
         git config --global user.name 'GitHub Actions'
