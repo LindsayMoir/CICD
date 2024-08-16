@@ -28,6 +28,10 @@ jobs:
         find . -name "*.py" | xargs autopep8 --in-place --aggressive \
         --aggressive --max-line-length=79
 
+    - name: Debug autopep8
+      run: |
+        find . -name "*.py" | xargs autopep8 --diff --aggressive --aggressive --max-line-length=79
+
     - name: Commit changes
       run: |
         git config --global user.name 'GitHub Actions'
