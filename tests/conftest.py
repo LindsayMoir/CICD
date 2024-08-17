@@ -1,6 +1,7 @@
 # tests/conftest.py
 import pytest
-from iris import load_data 
+from iris import load_data
+
 
 @pytest.fixture
 def iris_data():
