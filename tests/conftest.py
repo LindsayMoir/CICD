@@ -1,4 +1,3 @@
-from iris import load_data
 import sys
 import pytest
 
@@ -6,7 +5,7 @@ import pytest
 sys.path.insert(0, '/mnt/d/GitHub/CICD')
 
 # Import the module we want to test
-
+from iris import load_data
 
 @pytest.fixture
 def iris_data():
