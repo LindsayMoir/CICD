@@ -1,5 +1,4 @@
 import sys
-import os
 import pytest
 
 # Add the directory where 'iris.py' is located to sys.path
