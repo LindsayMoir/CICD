@@ -1,5 +1,13 @@
 from fastapi.testclient import TestClient
-from ingest_data import app  # Assuming your FastAPI app is in ingest_data.py
+import sys
+import os
+
+# Make sure when this goes to render that it can deal with relative paths on the different machine
+sys.path.insert(0, os.path.abspath(
+    os.path.join(
+        os.path.dirname(__file__), '..')))
+
+from main import app
 
 client = TestClient(app)
 

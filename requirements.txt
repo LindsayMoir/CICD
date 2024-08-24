@@ -3,3 +3,5 @@ pytest
 requests
 ucimlrepo
 uvicorn
+fastapi
+pydantic
